@@ -1,0 +1,17 @@
+<h1>Station Report:</h1>
+<table border="1">
+  <thead>
+    <th>Data Points
+      <td>Number</td>
+    </th>
+  </thead>
+<tbody>
+  <% @stations.each do |station| %>
+  <tr>
+    <td><%= h station.inspect %></td>
+    <td> Broken:working </td>
+    
+  </tr>
+
+  <%end%>
+</tbody>

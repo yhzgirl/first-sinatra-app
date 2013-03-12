@@ -1,0 +1,24 @@
+
+h1{
+  font-size: 30px;
+  font-weight: strong;
+  font-family: Arial;
+  color: #31698a;
+}
+
+p{
+  font-family: Arial
+}
+
+.picture{
+  width: 411px;
+  border-radius: 15px;
+}
+
+tr.even{
+  background-color: #989898 
+}
+
+tr.hover{
+  background-color: #31698a
+}
