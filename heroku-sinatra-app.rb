@@ -2,7 +2,7 @@
 # by going ruby heroku-sinatra-app.rb
 # then go to localhost:4567 in your browser
 #
-require 'debugger'
+require 'debugger' if development?
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/reloader' if development?
