@@ -11,6 +11,9 @@ gem "ansi" # makes the output coloured
 gem 'turn' # makes the output nice
 gem "terminal-notifier-guard"
 gem 'erubis'
+gem 'data_mapper'
+gem 'dm-migrations'
+gem 'dm-postgres-adapter'
 
 group :development do
   gem 'debugger'

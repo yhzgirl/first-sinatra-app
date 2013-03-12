@@ -6,6 +6,8 @@ require 'debugger' if development?
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'data_mapper'
+require "dm-migrations"
 require './lib/bike.rb'
 require './lib/station.rb'
 
