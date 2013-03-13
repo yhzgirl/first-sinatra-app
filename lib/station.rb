@@ -4,12 +4,14 @@ class Station < Location
   include DataMapper::Resource
 
   property :id, Serial
+  #property
+  #property #no of bikes
 
     CAPACITY = 20
 
 
   def working_bikes
-    @bikes.select { |bike| !bike.broken? }
+    Bike.all.select { |bike| !bike.broken? }
   end
 
   def broken_bikes

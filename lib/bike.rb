@@ -2,23 +2,21 @@ class Bike
   include DataMapper::Resource
 
   property :id, Serial
-  property :broken, Boolean
-
-  def initialize
-    @broken = false
-  end
+  property :broken, Boolean, :default => false
 
   def broken?
-    @broken    
+    broken    
   end
 
   def break!
-    @broken = true
-    self   
+    self.broken = true 
+    save
+    self
   end
 
   def fix!
-    @broken = false
+    self.broken = false
+    save
     self
   end
 end

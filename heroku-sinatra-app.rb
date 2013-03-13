@@ -55,9 +55,13 @@ get '/report' do
   erb :report
 end
 
-# get '/station_report' do
-#   erb :station_report #:locals => {:stations => stations}
-# end
+get '/station_report' do
+  erb :station_report #:locals => {:stations => stations}
+end
+
+get '/bike_report' do
+  erb :bike_report
+end
 
 # get '/people_report' do
 #   erb :people_report

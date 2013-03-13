@@ -2,20 +2,22 @@
 
 <table border="1">
   <thead> 
-    <th> Data Points
-      <td> Number </td>
+    <th> Bike ID
+      <td> Broken/Working </td>
     </th>
   </thead>
   <tbody>
+    <% Bike.all.each do |bike| %>
     <tr>
-      <td>Number of Bikes</td> 
-      <td><%= Bike.all.count %></td>
-    </tr>
+      <td><%= bike.object_id %></td> 
+      <td><%= bike.broken? ? "Broken" : "Working" %></td>
+    </tr> 
+    <% end %>
   </tbody>
 </table>
 
 <p>
-  <a href="/station_report"> Click here for the next level of report  
+  <a href="/station_report"> Click here for the Station report.  
   </a>
 </p>
 
