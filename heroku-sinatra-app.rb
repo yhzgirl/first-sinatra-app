@@ -10,6 +10,8 @@ require 'data_mapper'
 require "dm-migrations"
 require './lib/bike.rb'
 require './lib/station.rb'
+require './lib/person.rb'
+
 
 # for templates uncomment the line below
 require 'erb'
@@ -31,15 +33,35 @@ get '/' do
   erb :index
 end
 
-get '/bike_report' do
-  bikes = Array.new(10) {Bike.new.save}
-  erb :bike_report, :locals => {:bikes => bikes}
+# RESTFUL ARCHITECTURE
+# # Index, New, Destroy, Update, Create, Edit, Show
+# Get-Index, Get-Show, Get-New, Get-Edit
+# Post-Create
+# Put-Update
+# Delete-Destroy
+
+post '/create_system' do
+  # params[:no_bikes].to_i
+  Array.new(params[:no_bikes].to_i) {Bike.new.save} #why does .create not work?
+  Array.new(params[:no_stations].to_i) {Station.new.save}
+  Array.new(params[:no_people].to_i) {Person.new.save}
+  # @vans = Array.new(2) {Van.create}
+  # @garages = Array.new(2) {Garage.create}
+  redirect "/report"
 end
 
-get '/station_report' do
-  @stations = Array.new(5) {Station.new.save}
-  erb :station_report #:locals => {:stations => stations}
+
+get '/report' do
+  erb :report
 end
+
+# get '/station_report' do
+#   erb :station_report #:locals => {:stations => stations}
+# end
+
+# get '/people_report' do
+#   erb :people_report
+# end
 
 get '/delete_bikes' do
   Bike.destroy
@@ -49,7 +71,7 @@ end
 get '/delete_stations' do
   Station.destroy
   erb :delete_stations
-  end
+end
 
 
 # Test at <appname>.heroku.com (you'll need to create your app first!)
