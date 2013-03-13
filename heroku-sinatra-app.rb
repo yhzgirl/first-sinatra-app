@@ -2,7 +2,7 @@
 # by going ruby heroku-sinatra-app.rb
 # then go to localhost:4567 in your browser
 #
-require 'debugger' if development?
+# require 'debugger' if development?
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/reloader' if development?
@@ -19,6 +19,10 @@ helpers do
   end
 end
 
+connection = "postgres://localhost:5432/boris_bikes"
+DataMapper.setup(:default, ENV["DATABASE_URL"] || connection)
+
+DataMapper.finalize.auto_upgrade!
 
 get '/' do
   # This will be your default route
@@ -28,15 +32,19 @@ get '/' do
 end
 
 get '/start' do
-  bikes = Array.new(10) {Bike.new}
+  bikes = Array.new(10) {Bike.new.save}
   erb :start, :locals => {:bikes => bikes}
 end
 
 get '/station_report' do
-  @stations = Array.new(5) {Station.new}
+  @stations = Array.new(5) {Station.new.save}
   erb :station_report #:locals => {:stations => stations}
 end
 
+get '/delete' do
+  Bike.destroy
+  erb :delete
+end
 
 
 # Test at <appname>.heroku.com (you'll need to create your app first!)

@@ -1,6 +1,9 @@
 require './lib/location'
 
 class Station < Location
+  include DataMapper::Resource
+
+  property :id, Serial
 
     CAPACITY = 20
 
@@ -12,6 +15,8 @@ class Station < Location
   def broken_bikes
     @bikes.select { |bike| bike.broken? }
   end
+
+  
 
   # def working_bikes_count
   #   @bikes.count {|bike| !bike.broken? }

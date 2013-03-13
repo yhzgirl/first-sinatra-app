@@ -1,4 +1,8 @@
 class Bike
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :broken, Boolean
 
   def initialize
     @broken = false
@@ -17,5 +21,8 @@ class Bike
     @broken = false
     self
   end
-
+  
+  def delete_bikes
+    @bikes.destroy
+  end
 end

@@ -15,6 +15,6 @@ gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 
-group :development do
-  gem 'debugger'
-end
+# group :development do
+#   gem 'debugger'
+# end

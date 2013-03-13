@@ -6,7 +6,6 @@ GEM
     backports (3.1.1)
     bcrypt-ruby (3.0.1)
     coderay (1.0.9)
-    columnize (0.3.6)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -19,13 +18,6 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.12)
       addressable (~> 2.1)
-    debugger (1.4.0)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.2.0)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.2.0)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -117,7 +109,6 @@ PLATFORMS
 DEPENDENCIES
   ansi
   data_mapper
-  debugger
   dm-migrations
   dm-postgres-adapter
   erubis
