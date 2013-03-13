@@ -9,7 +9,7 @@
   <% Station.all.each do |station| %>
   <tr>
     <td><%= h station.object_id %></td>
-    <td> Broken:working </td>
+    <td> <%= station.working_bikes.count %> </td>
     
   </tr>
 

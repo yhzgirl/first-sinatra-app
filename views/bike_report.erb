@@ -4,6 +4,7 @@
   <thead> 
     <th> Bike ID
       <td> Broken/Working </td>
+      <td> Location </td>
     </th>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
     <tr>
       <td><%= bike.object_id %></td> 
       <td><%= bike.broken? ? "Broken" : "Working" %></td>
+      <td>Station: <%= bike.station_id %></td> 
     </tr> 
     <% end %>
   </tbody>

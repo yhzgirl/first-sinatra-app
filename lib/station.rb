@@ -1,9 +1,12 @@
 require './lib/location'
+require './lib/bike'
 
 class Station < Location
   include DataMapper::Resource
 
   property :id, Serial
+  
+  has n, :bikes
   #property
   #property #no of bikes
 
@@ -15,7 +18,7 @@ class Station < Location
   end
 
   def broken_bikes
-    @bikes.select { |bike| bike.broken? }
+    Bike.all.select { |bike| bike.broken? }
   end
 
   
