@@ -21,8 +21,4 @@ class Bike
     @broken = false
     self
   end
-  
-  def delete_bikes
-    @bikes.destroy
-  end
 end

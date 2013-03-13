@@ -5,7 +5,7 @@
 # require 'debugger' if development?
 require 'bundler/setup'
 require 'sinatra'
-require 'sinatra/reloader' if development?
+#require 'sinatra/shotgun' if development?
 require 'data_mapper'
 require "dm-migrations"
 require './lib/bike.rb'
@@ -31,9 +31,9 @@ get '/' do
   erb :index
 end
 
-get '/start' do
+get '/bike_report' do
   bikes = Array.new(10) {Bike.new.save}
-  erb :start, :locals => {:bikes => bikes}
+  erb :bike_report, :locals => {:bikes => bikes}
 end
 
 get '/station_report' do
@@ -41,10 +41,15 @@ get '/station_report' do
   erb :station_report #:locals => {:stations => stations}
 end
 
-get '/delete' do
+get '/delete_bikes' do
   Bike.destroy
-  erb :delete
+  erb :delete_bikes
 end
+
+get '/delete_stations' do
+  Station.destroy
+  erb :delete_stations
+  end
 
 
 # Test at <appname>.heroku.com (you'll need to create your app first!)

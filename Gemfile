@@ -14,6 +14,7 @@ gem 'erubis'
 gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
+gem 'shotgun'
 
 # group :development do
 #   gem 'debugger'
